@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editor</title>
+    <link rel="stylesheet" href="app1.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1 class="main-title">Welcome to my Video Editor App</h1>
+    </header>
+
+    <div class="nav-line">
+        <span>Contact Us</span>
+        <span>Sign Up</span>
+        <span>About Us</span>
+        <span>Privacy</span>
+        <span>Policy</span>
+    </div>
+  
+  <!-- TOOLS + MODE -->
+<div class="tools-wrapper">
+
+    <!-- TOOLS BOXES -->
+    <div class="tools">
+        <div class="tool-box">Trim</div>
+        <div class="tool-box">Split</div>
+        <div class="tool-box">Trim/L</div>
+        <div class="tool-box">Trim/R</div>
+        <div class="tool-box">Split</div>
+        <div class="tool-box">Freeze</div>
+    </div>
+
+    <!-- LIGHT / DARK BOXES -->
+    <div class="mode-boxes">
+        <div class="mode-box light-box" onclick="setLight()">Light</div>
+        <div class="mode-box dark-box" onclick="setDark()">Dark</div>
+    </div>
+
+</div>
+    
+    <!-- VIDEO EDITOR -->
+<div class="editor-wrapper">
+
+    <!-- UPLOAD & EXTRACT ROW -->
+<!-- MEDIA ACTION ROW -->
+<div class="media-actions">
+
+  <div class="action-box">
+    <label>Upload Video</label>
+    <input type="file" id="videoInput" accept="video/*">
+  </div>
+
+  <div class="action-box">
+    <label>Upload Audio</label>
+    <input type="file" id="audioInput" accept="audio/*">
+  </div>
+
+  <div class="action-box">
+    <button class="extract-btn">Extract Audio</button>
+  </div>
+
+</div>
+    
+  <!-- VIDEO PREVIEW -->
+  <div class="video-preview">
+    <video id="video" controls></video>
+  </div>
+
+  <!-- TRIM CONTROLS -->
+  <div class="trim-controls">
+    <label>Start</label>
+    <input type="range" id="startRange" min="0" value="0">
+    <label>End</label>
+    <input type="range" id="endRange" min="0" value="100">
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline" id="timeline">
+    <div class="playhead" id="playhead"></div>
+  </div>
+
+</div>
+    
+
+    <!-- FORMS WRAPPER -->
+    <div class="forms-wrapper">
+
+        <!-- SIGN UP FORM -->
+        <div class="form-box signup-form">
+            <h3>Sign Up</h3>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Repeat Password" required>
+            <button type="button" class="btn">Create Account</button>
+        </div>
+
+        <!-- CONTACT US FORM -->
+        <div class="form-box contact-form">
+            <h3>Contact Us</h3>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message"></textarea>
+            <button type="button" class="btn">Send Message</button>
+        </div>
+
+    </div>
+
+  <script src="app1.js"></script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+/* GLOBAL RESET — ADD AT TOP */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* DEFAULT LIGHT MODE */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    transition: 0.3s ease;
+}
+
+/* only for welcome to my video 
+editor app and it's background */
+.main-header h1 {
+    font-size: clamp(20px, 5vw, 48px); /* auto fit on both mobile and laptop */
+    text-align: center;
+    background: #6826;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 0px;
+    padding: 5px;
+    font-size: auto;    /* text size */
+    word-spacing: auto; /* space between words */
+    font-style: italic; /* make text italic */
+}
+
+.nav-line {
+    display: flex;                         /* one line layout */
+    justify-content: center;               /* center group */
+    gap: clamp(15px, 5vw, 40px);            /* responsive gap */
+    font-size: clamp(14px, 3vw, 20px);      /* responsive text */
+    font-weight: bold;                     /* bold text */
+    padding: 10px 0;                       /* top bottom space */
+    background: #2162;
+    padding: 10px;
+    color: royalblue;
+}
+
+.nav-line span {
+    cursor: pointer;                       /* clickable */
+}
+
+/* for header and nav line */
+body.dark .main-header h1 {
+    background: #1e1e1e;          /* dark background */
+    color: #ffffff;               /* dark text */
+}
+
+body.dark .nav-line {
+    background: #2a2a2a;          /* dark background */
+    color: #ffffff;               /* dark text */
+}
+
+.main-header h1,
+.nav-line {
+    transition: background 0.7s ease, color 0.9s ease;
+}
+
+/* for red border around seprate 6 boxes */
+.tool-box.active {
+    outline: 2px solid red;        /* active indicator */
+    background: #d0d0d0;
+}
+
+body.dark .tool-box.active {
+    background: #3a3a3a;
+}
+
+/* WRAPPER */
+.tools-wrapper {
+    display: flex;                          /* layout */
+    align-items: center;                    /* vertical center */
+    justify-content: space-between;         /* space between tools & mode */
+    padding: 10px 20px;
+}
+
+/* TOOLS CONTAINER */
+.tools {
+    display: grid;                          /* grid layout */
+    grid-template-columns: repeat(6, 1fr);  /* laptop: one line */
+    gap: 10px;                              /* space between boxes */
+    width: 100%;
+}
+
+/* SINGLE TOOL BOX */
+.tool-box {
+    background: #e0e0e0;
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* for light and dark mode */
+/* MODE BOXES (DEFAULT = MOBILE) */
+.mode-boxes {
+    display: flex;                          /* flex layout */
+    flex-direction: column;                 /* 2 rows on mobile */
+    gap: 10px;                              /* space between Light & Dark */
+    margin-left: 15px;
+}
+
+/* SINGLE MODE BOX */
+.mode-box {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* LIGHT BOX */
+.light-box {
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* DARK BOX */
+.dark-box {
+    background: #222;
+    color: #fff;
+}
+
+/* ACTIVE STATE */
+.mode-box.active {
+    outline: 2px solid red;
+}
+
+/* 🌙 DARK MODE */
+body.dark {
+    background: #121212;
+}
+
+body.dark .tool-box {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+body.dark .light-box {
+    background: #333;                      /* better visibility */
+    color: #fff;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+    .tools-wrapper {
+        align-items: flex-start;            /* align top */
+    }
+
+    .tools {
+        grid-template-columns: repeat(3, 1fr); /* 3 per row on mobile */
+    }
+}
+
+/* 💻 LAPTOP */
+@media (min-width: 769px) {
+    .mode-boxes {
+        flex-direction: row;               /* 1 row */
+        align-items: center;
+    }
+}
+
+
+
+
+/* ============================= */
+/* FORMS WRAPPER - AUTO RESPONSIVE */
+/* ============================= */
+.forms-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto responsive */
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;     /* Optional: center content on large screens */
+  margin-inline: auto;
+  padding: 20px;
+}
+
+/* ============================= */
+/* FORM BOX – MODERN UI */
+.form-box {
+  background: linear-gradient(135deg, #ffffff, #f5f7fa);
+  padding: 22px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+}
+
+/* INPUTS – MODERN UI */
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-box input:focus,
+.form-box textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.15);
+}
+
+
+
+/* CONTACT US MESSAGE BOX HEIGHT ONLY */
+.contact-form textarea {
+  height: 100px; /* Adjust height as needed */
+  max-height: 300px; /* Optional: limit max height */
+  width: 100%;       /* Keep original width */
+  resize: vertical;  /* Allow vertical resizing only */
+}
+
+
+
+/* BUTTON – MODERN UI */
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,123,255,0.4);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ============================= */
+/* DARK MODE */
+body.dark .form-box {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark input,
+body.dark textarea {
+  background: #1e1e1e;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark .btn {
+  background: #0d6efd;
+}
+
+/* ============================= */
+/* SMOOTH TRANSITIONS */
+.form-box,
+input,
+textarea,
+.btn {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* FORM ENTRANCE ANIMATION */
+.forms-wrapper {
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================= */
+/* VIDEO EDITOR UI */
+/* ============================= */
+
+.editor-wrapper {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 15px;
+}
+
+.upload-box input {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.video-preview video {
+  width: 100%;
+  max-height: 420px;
+  background: #000;
+  border-radius: 14px;
+}
+
+/* TRIM CONTROLS */
+.trim-controls {
+  margin: 15px 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.trim-controls input {
+  flex: 1;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  height: 60px;
+  background: #f1f1f1;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.playhead {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: red;
+  left: 0;
+  cursor: pointer;
+}
+
+/* ============================= */
+/* MEDIA ACTIONS ROW */
+/* ============================= */
+
+.media-actions { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.action-box {
+  background: #c1f1f1;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.action-box label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.action-box input[type="file"] {
+  width: 100%;
+  font-size: 12px;
+}
+
+.extract-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* DARK MODE */
+body.dark .action-box {
+  background: #2a2a2a;
+}
+
+body.dark .action-box label {
+  color: #fff;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .media-actions {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .media-actions {
+    flex-direction: column;
+  } 
+}
+
+/* FORCE MEDIA ACTIONS IN ONE LINE (DESKTOP) */
+.media-actions {
+  display: flex !important;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.media-actions .action-box {
+  flex: 1;
+  min-width: 0;
+}
